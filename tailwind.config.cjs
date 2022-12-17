@@ -36,6 +36,9 @@ module.exports = {
         caribbeanGreen: '#00ca9e',
         fog: '#decaec'
       },
+      gridTemplateColumns: {
+        invoiceTable: '100px 100px 60px 1fr 116px 32px 32px'
+      },
       zIndex: {
         navBarToggle: 91,
         navBar: 90

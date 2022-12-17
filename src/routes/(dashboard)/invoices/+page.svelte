@@ -1,13 +1,17 @@
-<script lang="typescript">
+<script>
+  import CircledAmount from '$lib/components/CircledAmount.svelte';
+  import ThreeDots from '$lib/components/Icons/ThreeDots.svelte';
+  import View from '$lib/components/Icons/View.svelte';
   import Search from '$lib/components/Search.svelte';
+  import Tag from '$lib/components/Tag.svelte';
 </script>
 
 <svelte:head>
   <title>Invoices | The Dollar Holler</title>
 </svelte:head>
 
-<!-- list of invoices -->
-<div>
+<div class="mb-16 flex items-center justify-between">
+  <!-- search field -->
   <Search />
 
   <!-- new invoice button -->
@@ -17,26 +21,41 @@
       >+ Invoice</button
     >
   </div>
-  <div>
+</div>
+
+<!-- list of invoices -->
+<div>
+  <!-- header -->
+  <div class="table-header invoice-table text-daisyBush">
     <h3>Status</h3>
     <h3>Due Date</h3>
     <h3>ID</h3>
     <h3>Client</h3>
-    <h3>Amoung</h3>
-    <!-- view icon -->
+    <h3>Amount</h3>
     <div />
-    <!-- three dots -->
     <div />
+  </div>
+
+  <!-- invoices -->
+  <div class="invoice-table items-center rounded-lg bg-white py-6 shadow-tableRow">
+    <div><Tag label="draft" /></div>
+    <div class="text-lg">8/1/2022</div>
+    <div class="text-lg">12345</div>
+    <div class="text-xl font-bold">Compressed.fm</div>
+    <div class="font-mono text-lg font-bold">$504.00</div>
+    <div class="center text-lg">
+      <a href="#" class="text-pastelPurple hover:text-daisyBush"><View /></a>
+    </div>
+    <div class="center text-lg">
+      <button class=" text-pastelPurple hover:text-daisyBush"><ThreeDots /></button>
+    </div>
   </div>
 </div>
 
-<!-- invoices -->
-<div>
-  <div>Tag</div>
-  <div>8/1/2023</div>
-  <div>12345</div>
-  <div>Compressed.fm</div>
-  <div>504.00$</div>
-</div>
+<CircledAmount label="Total" amount="$1,144.00" />
 
-<div>Total amount: 4.500$</div>
+<style lang="postcss">
+  .table-header h3 {
+    @apply text-xl font-black leading-snug;
+  }
+</style>
