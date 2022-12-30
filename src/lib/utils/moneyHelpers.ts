@@ -3,7 +3,7 @@
  * @param {Array|undefined} lineItems
  * @returns {number}
  */
-export const sumLineItems = (lineItems: LineItem[] | undefined): number => {
+export const sumLineItems = (lineItems: LineItems[] | undefined): number => {
   if (!lineItems) return 0;
   return lineItems.reduce((prevValue, curValue) => prevValue + curValue.amount, 0);
 };
